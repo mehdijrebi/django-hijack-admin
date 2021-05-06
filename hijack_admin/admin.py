@@ -41,12 +41,12 @@ class HijackUserAdminMixin(object):
 
 class HijackRelatedAdminMixin(HijackUserAdminMixin):
 
-    def hijack_field(self, obj):
+    def Login_As(self, obj):
         return super(HijackRelatedAdminMixin, self).hijack_field(obj.user)
 
 
 class HijackUserAdmin(HijackUserAdminMixin, UserAdmin):
-    list_display = UserAdmin.list_display + ('hijack_field', )
+    list_display = UserAdmin.list_display + ('Login_As', )
 
 
 if hijack_admin_settings.HIJACK_REGISTER_ADMIN:
